@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     selector : 'ng-app',
     template : `<div>
                     <h2>Loan Details</h2>
-                    <input type='number' [(ngModel)]= 'loan_amount' min='0' />
+                    <input type='number' [(ngModel)]='loan_amount' min='0' />
                     <b>Monthly Payment:</b> {{loan_amount ? monthly_payment : 'N/A'}} <br/>
                     <b>Late Payment Fee : {{loan_amount ? late_payment  : 'N/A'}}</b> <br/>
                 </div>`

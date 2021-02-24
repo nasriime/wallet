@@ -6,24 +6,39 @@
 import { Component, NgModule  } from '@angular/core';
 import { RouterModule} from "@angular/router";
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector : 'ng-app',
     template : `
                 <h2>Enter your first and last name</h2>
+                <input type='text' name='firstname' (input)='generateUsername()' [(ngModel)]='firstname' /><br/>
+                <input type='text' name='lastname' (input)='generateUsername()' [(ngModel)]='lastname' /><br/>
+                <p *ngIf='firstname && lastname' >{{username}}</p>
                 <div>
                 </div>
                 `,
     styles : []
 })
 export class UserNameComponent {
-    
+    firstname:string = "2";
+    lastname:string = "3";
+    random_integer:number = Math.floor(Math.random() * 8) + 1;
+    username = this.generateUsername();
+
+    generateUsername(){
+        if(this.firstname && this.lastname){
+            this.username = `${this.firstname}_${this.lastname}_${this.random_integer}`;
+        }
+        return this.username
+    }
 
 }
 
 @NgModule({
     imports : [
         CommonModule,
+        FormsModule,
         RouterModule.forChild([
             {
                 path : "",
