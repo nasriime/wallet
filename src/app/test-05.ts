@@ -46,6 +46,10 @@ export class MainComponent {
             this.test = test;
         });
     }
+
+    public ngOnDestroy(): void {
+        this._srv.test.unsubscribe();
+      }
 }
 
 @Component({
@@ -65,7 +69,7 @@ export class TextChildComponent {
         this._router.navigate(["test-six"]);
     }
 
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         if(this.skip) this._srv.SetTest("angular test #6");
     }
 
