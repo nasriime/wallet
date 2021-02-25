@@ -46,7 +46,7 @@ export class AppComponent {}
         {
             path : "",
             pathMatch : "full",
-            redirectTo : "test-one"
+            redirectTo : "test-six"
         }
     ])
   ],

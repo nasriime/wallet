@@ -8,12 +8,16 @@
 import { Component, NgModule  } from '@angular/core';
 import { RouterModule} from "@angular/router";
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector : 'ng-app',
     template : `
                 <h2>User Review:</h2>
-                <textarea class="textfield" placeholder="Write your Review" [value]="review_input"></textarea>
+                <textarea class="textfield" placeholder="Write your Review" 
+                    (input)="urlify($event.target.value)"
+                    [innerHTML]="review_input" 
+                   ></textarea>
                 <br/><br/>
                 <h3>Output:</h3>
                 <div class="output" [innerHTML]="review_content"></div>
@@ -31,6 +35,7 @@ import { CommonModule } from '@angular/common';
             border: solid 1px #f9f6f6;
             padding: 5px;
             background: #ecebeb; 
+            white-space: pre-wrap;
         }`
     ]
 })
@@ -48,8 +53,15 @@ At https://wallethub.com <b>bolded text</b>`;
 
     review_content = "";
 
-    ngOnInit() {
-        this.review_content = this.review_input;
+    ngOnInit() :void {
+        this.review_content = this.urlify(this.review_input);
+    }
+
+    urlify(text):string {
+        let urlRegex = /(https?:\/\/[^\s]+)/g;
+        return this.review_content = text.replace(urlRegex, (url)=> {
+          return '<a href="' + url + '">' + url + '</a>';
+        })
     }
 
 }
@@ -57,6 +69,7 @@ At https://wallethub.com <b>bolded text</b>`;
 @NgModule({
     imports : [
         CommonModule,
+        FormsModule,
         RouterModule.forChild([
             {
                 path : "",

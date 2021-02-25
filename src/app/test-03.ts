@@ -15,15 +15,16 @@
 import { Component, NgModule  } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector : 'ng-app',
     template : `<form>
                     <h2>Login</h2>
                     <br/>
-                    <input type="email" value="" name="email" />
+                    <input type="email" value="" name="email" [(ngModel)]="email" />
                     <br/>
-                    <input type="password" value="" name="password" />
+                    <input type="password" value="" name="password"  [(ngModel)]="password" />
                     <button type="submit">Submit</button>
                     <br/><br/>
                     <div *ngIf="logged_in">Logged In!</div>
@@ -40,6 +41,7 @@ export class Test03Component {
 @NgModule({
     imports : [
         CommonModule,
+        FormsModule,
         RouterModule.forChild([
             {
                 path : "",
