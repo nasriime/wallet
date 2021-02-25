@@ -19,13 +19,26 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
     selector : 'ng-app',
-    template : `<form>
+    template : `<form #userForm="ngForm">
                     <h2>Login</h2>
                     <br/>
-                    <input type="email" value="" name="email" [(ngModel)]="email" />
-                    <br/>
-                    <input type="password" value="" name="password"  [(ngModel)]="password" />
-                    <button type="submit">Submit</button>
+                        <input type="email" name="email" #email="ngModel"
+                            required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" 
+                            [(ngModel)]="userForm.email" >
+                        <div *ngIf="email.errors && (email.invalid || email.touched)">
+                            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+                            <small class="text-danger" *ngIf="email.errors.pattern">Please provide a valid email address</small>
+                        </div>
+                        <br/>
+                        <input type="text" name="password" #password="ngModel"
+                            required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+                            [(ngModel)]="userForm.password" >
+                        <div *ngIf="password.errors && (password.invalid || password.touched)">
+                            <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                            <small class="text-danger" *ngIf="password.errors.pattern">password contains at least one special character, one upper case character, one lower case character, one number and a minium of 8 characters in length</small>
+                        </div>
+                        <br/>
+                        <button type="submit" [disabled]='userForm.invalid'>Submit</button>
                     <br/><br/>
                     <div *ngIf="logged_in">Logged In!</div>
                 </form>`
