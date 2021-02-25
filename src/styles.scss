@@ -2,3 +2,73 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: "Proxima-Nova-Bold-Italic";
+    src: url("./assets/fonts/Proxima\ Nova\ Bold\ Italic.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Proxima-Nova-Bold-Light";
+    src: url("./assets/fonts/Proxima\ Nova\ Light.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Proxima-Nova-Regular-Italic";
+    src: url("./assets/fonts/Proxima\ Nova\ Regular\ Italic.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Proxima-Nova-Semibold";
+    src: url("./assets/fonts/Proxima\ Nova\ Semibold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Proxima-Nova-Semibold-Italic";
+    src: url("./assets/fonts/Proxima\ Nova\ Semibold\ Italic.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-Black";
+    src: url("./assets/fonts/ProximaNova-Black.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-BlackIt";
+    src: url("./assets/fonts/ProximaNova-BlackIt.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-Bold";
+    src: url("./assets/fonts/ProximaNova-Bold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-ExtrabldIt";
+    src: url("./assets/fonts/ProximaNova-ExtrabldIt.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-Extrabold";
+    src: url("./assets/fonts/ProximaNova-Extrabold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-LightItalic";
+    src: url("./assets/fonts/ProximaNova-LightItalic.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-Reg";
+    src: url("./assets/fonts/ProximaNova-Reg.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-Thin";
+    src: url("./assets/fonts/ProximaNova-Thin.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "ProximaNova-ThinIt";
+    src: url("./assets/fonts/ProximaNova-ThinIt.otf") format("opentype");
+  }
