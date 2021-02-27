@@ -44,9 +44,13 @@ export class AppComponent {}
             loadChildren : ()=>import("./test-06").then(module=>module.ReviewModule)
         },
         {
+            path : "main",
+            loadChildren : ()=>import("./design").then(module=>module.DesignModule)
+        },
+        {
             path : "",
             pathMatch : "full",
-            redirectTo : "test-one"
+            redirectTo : "main"
         }
     ])
   ],
